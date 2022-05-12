@@ -1,0 +1,5 @@
+user = 'ususario de postgresql'
+password = 'password del usuario'
+dbname = 'nombre de la base de datos'
+host = 'host'
+port = 'port'
