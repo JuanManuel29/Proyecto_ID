@@ -13,73 +13,28 @@ connection = psycopg2.connect(user=cd.user,
                         host=cd.host,
                         port=cd.port)
 
-#-----CREACIÓN DE LAS SENTENCIAS PARA HACER LA CONSULTA DE LAS TABLAS DE LA BD
 
-#SENTENCIA PARA LA CONSULTA DE LA TABLA ''
-print("-----------------DATOS DE LA TABLA ''-------------------- ")
-cur = connection.cursor()
-cur.execute('SELECT * FROM ')
-muestra = cur.fetchall()
-for i in range(len(muestra)):
-        print(muestra[i])
-cur.close()
-connection.close()
+#LISTA QUE CONTIENE LOS NOMBRES DE LAS TABLAS DE LA BASE DE DATOS
+table_names = ['clase', 'entidad', 'subcuenta', 'uca', 'registro']
 
 
-#SENTENCIA PARA LA CONSULTA DE LA TABLA ''
-print("-----------------DATOS DE LA TABLA ''-------------------- ")
-cur = connection.cursor()
-cur.execute('SELECT * FROM ')
-muestra = cur.fetchall()
-for i in range(len(muestra)):
-        print(muestra[i])
-cur.close()
-connection.close()
+#FUNCION QUE PERMITE VISUALIZAR TODAS LAS TUPLAS DE LA TABLA QUE SE DESEE
+def print_all_data(table_name: str):
+        try:
+                print(f"-----------------DATOS DE LA TABLA '{table_name}'--------------------")
+                cur = connection.cursor()
+                cur.execute(f'SELECT * FROM {table_name}')
+                data = cur.fetchall()
+                for i in range(len(data)):
+                        print(data[i])
+                cur.close()
+                connection.close()
+        except:
+                print(f'THERE IS NO TABLE NAMED: "{table_name}" ')
 
 
-#SENTENCIA PARA LA CONSULTA DE LA TABLA ''
-print("-----------------DATOS DE LA TABLA ''-------------------- ")
-cur = connection.cursor()
-cur.execute('SELECT * FROM ')
-muestra = cur.fetchall()
-for i in range(len(muestra)):
-        print(muestra[i])
-cur.close()
-connection.close()
-
-
-#SENTENCIA PARA LA CONSULTA DE LA TABLA ''
-print("-----------------DATOS DE LA TABLA ''-------------------- ")
-cur = connection.cursor()
-cur.execute('SELECT * FROM ')
-muestra = cur.fetchall()
-for i in range(len(muestra)):
-        print(muestra[i])
-cur.close()
-connection.close()
-
-
-#SENTENCIA PARA LA CONSULTA DE LA TABLA ''
-print("-----------------DATOS DE LA TABLA ''-------------------- ")
-cur = connection.cursor()
-cur.execute('SELECT * FROM ')
-muestra = cur.fetchall()
-for i in range(len(muestra)):
-        print(muestra[i])
-cur.close()
-connection.close()
-
-
-#SENTENCIA PARA LA CONSULTA DE LA TABLA ''
-print("-----------------DATOS DE LA TABLA ''-------------------- ")
-cur = connection.cursor()
-cur.execute('SELECT * FROM ')
-muestra = cur.fetchall()
-for i in range(len(muestra)):
-        print(muestra[i])
-cur.close()
-connection.close()
-
+#EJECUCION DE LA FUNCION
+print_all_data('clasee')
 
 # #APLICACIÓN--------------------------------------------------------------------
 # #CREACIÓN DE LA APLICACIÓN
