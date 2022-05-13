@@ -34,7 +34,7 @@ def print_all_data(table_name: str):
 
 
 #EJECUCION DE LA FUNCION
-print_all_data('clasee')
+print_all_data(table_name = 'uca')
 
 # #APLICACIÓN--------------------------------------------------------------------
 # #CREACIÓN DE LA APLICACIÓN
