@@ -1,0 +1,12 @@
+COPY subcuenta FROM 'C:\subcuentas.csv' WITH DELIMITER ';' CSV HEADER;
+
+COPY clase FROM 'C:\clase.csv' WITH DELIMITER ';' CSV HEADER;
+
+COPY entidad FROM 'C:\entidad.csv' WITH DELIMITER ';' CSV HEADER;
+
+COPY uca FROM 'C:\UCA.csv' WITH DELIMITER ';' CSV HEADER;
+
+COPY oferta FROM 'C:\oferta.csv' WITH DELIMITER ';' CSV HEADER;
+
+COPY registro FROM 'C:\registro.csv' WITH DELIMITER ';' CSV HEADER;
+

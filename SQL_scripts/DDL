@@ -1,98 +1,110 @@
-------------------------------------------------
----CREACIÓN DE LAS TABLAS DE LA BASE DE DATOS---
-------------------------------------------------
 
--- object: public."Clases" | type: TABLE --
--- DROP TABLE IF EXISTS public."Clases" CASCADE;
-CREATE TABLE public."clase" (
+-- object: public.clase | type: TABLE --
+-- DROP TABLE IF EXISTS public.clase CASCADE;
+CREATE TABLE public.clase (
 	codigo integer NOT NULL,
 	nombre varchar(40),
-	CONSTRAINT "clase_pk" PRIMARY KEY (codigo)
-
+	CONSTRAINT clase_pk PRIMARY KEY (codigo)
 );
 -- ddl-end --
-ALTER TABLE public."clase" OWNER TO postgres;
+ALTER TABLE public.clase OWNER TO postgres;
 -- ddl-end --
 
--- object: public."Entidad" | type: TABLE --
--- DROP TABLE IF EXISTS public."Entidad" CASCADE;
-CREATE TABLE public."entidad" (
+-- object: public.entidad | type: TABLE --
+-- DROP TABLE IF EXISTS public.entidad CASCADE;
+CREATE TABLE public.entidad (
 	codigo integer NOT NULL,
-	nombre varchar(40),
-	"codigo_clase" integer NOT NULL,
-	CONSTRAINT "entidad_pk" PRIMARY KEY (codigo,"codigo_clase")
+	nombre varchar(100),
+	codigo_clase integer NOT NULL,
+	CONSTRAINT entidad_pk PRIMARY KEY (codigo,codigo_clase)
+);
+-- ddl-end --
+ALTER TABLE public.entidad OWNER TO postgres;
+-- ddl-end --
+
+-- object: public.oferta | type: TABLE --
+-- DROP TABLE IF EXISTS public.oferta CASCADE;
+CREATE TABLE public.oferta (
+	codigo_entidad integer,
+	codigo_clase_entidad integer,
+	codigo_uca integer
 
 );
 -- ddl-end --
-ALTER TABLE public."entidad" OWNER TO postgres;
+ALTER TABLE public.oferta OWNER TO postgres;
 -- ddl-end --
 
--- object: public."UCA" | type: TABLE --
--- DROP TABLE IF EXISTS public."UCA" CASCADE;
-CREATE TABLE public."uca" (
-	codigo smallint NOT NULL,
-	nombre varchar(40),
-	"codigo_entidad" integer,
-	"codigo_clase_entidad" integer,
-	CONSTRAINT "uca_pk" PRIMARY KEY (codigo)
-
-);
--- ddl-end --
-ALTER TABLE public."uca" OWNER TO postgres;
--- ddl-end --
-
--- object: public."Subcuenta" | type: TABLE --
--- DROP TABLE IF EXISTS public."Subcuenta" CASCADE;
-CREATE TABLE public."subcuenta" (
-	codigo smallint NOT NULL,
-	descripcion varchar(60),
-	CONSTRAINT "subcuenta_pk" PRIMARY KEY (codigo)
-
-);
--- ddl-end --
-ALTER TABLE public."subcuenta" OWNER TO postgres;
--- ddl-end --
-
--- object: "Clases_fk" | type: CONSTRAINT --
--- ALTER TABLE public."Entidad" DROP CONSTRAINT IF EXISTS "Clases_fk" CASCADE;
-ALTER TABLE public."entidad" ADD CONSTRAINT "clase_fk" FOREIGN KEY ("codigo_clase")
-REFERENCES public."clase" (codigo) MATCH FULL
+-- object: clase_fk | type: CONSTRAINT --
+-- ALTER TABLE public.entidad DROP CONSTRAINT IF EXISTS clase_fk CASCADE;
+ALTER TABLE public.entidad ADD CONSTRAINT clase_fk FOREIGN KEY (codigo_clase)
+REFERENCES public.clase (codigo) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
--- object: "Entidad_fk" | type: CONSTRAINT --
--- ALTER TABLE public."UCA" DROP CONSTRAINT IF EXISTS "Entidad_fk" CASCADE;
-ALTER TABLE public."uca" ADD CONSTRAINT "entidad_fk" FOREIGN KEY ("codigo_entidad","codigo_clase_entidad")
-REFERENCES public."entidad" (codigo,"codigo_clase") MATCH FULL
+-- object: entidad_fk | type: CONSTRAINT --
+-- ALTER TABLE public.oferta DROP CONSTRAINT IF EXISTS entidad_fk CASCADE;
+ALTER TABLE public.oferta ADD CONSTRAINT entidad_fk FOREIGN KEY (codigo_entidad,codigo_clase_entidad)
+REFERENCES public.entidad (codigo,codigo_clase) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
--- object: public.registros | type: TABLE --
--- DROP TABLE IF EXISTS public.registros CASCADE;
+-- object: public.uca | type: TABLE --
+-- DROP TABLE IF EXISTS public.uca CASCADE;
+CREATE TABLE public.uca (
+	codigo integer NOT NULL,
+	nombre varchar(100),
+	CONSTRAINT uca_pk PRIMARY KEY (codigo)
+);
+-- ddl-end --
+ALTER TABLE public.uca OWNER TO postgres;
+-- ddl-end --
+
+-- object: public.registro | type: TABLE --
+-- DROP TABLE IF EXISTS public.registro CASCADE;
 CREATE TABLE public.registro (
+	numero_registro integer NOT NULL,
 	fecha date,
-	"natural" integer NOT NULL,
-	juridica integer NOT NULL,
-	total smallint NOT NULL,
-	"codigo_subcuenta" smallint NOT NULL,
-	"codigo_uca" smallint NOT NULL,
-	CONSTRAINT registros_pk PRIMARY KEY ("codigo_subcuenta","codigo_uca")
-
+	"natural" real NOT NULL,
+	juridica real NOT NULL,
+	total real NOT NULL,
+	codigo_subcuenta integer,
+	codigo_uca integer,
+	CONSTRAINT registro_pk PRIMARY KEY (numero_registro)
 );
 -- ddl-end --
 ALTER TABLE public.registro OWNER TO postgres;
 -- ddl-end --
 
--- object: "Subcuenta_fk" | type: CONSTRAINT --
--- ALTER TABLE public.registros DROP CONSTRAINT IF EXISTS "Subcuenta_fk" CASCADE;
-ALTER TABLE public.registro ADD CONSTRAINT "subcuenta_fk" FOREIGN KEY ("codigo_subcuenta")
-REFERENCES public."subcuenta" (codigo) MATCH FULL
+-- object: public.subcuenta | type: TABLE --
+-- DROP TABLE IF EXISTS public.subcuenta CASCADE;
+CREATE TABLE public.subcuenta (
+	codigo integer NOT NULL,
+	descripcion varchar(150),
+	CONSTRAINT subcuenta_pk PRIMARY KEY (codigo)
+);
+-- ddl-end --
+ALTER TABLE public.subcuenta OWNER TO postgres;
+-- ddl-end --
+
+-- object: subcuenta_fk | type: CONSTRAINT --
+-- ALTER TABLE public.registro DROP CONSTRAINT IF EXISTS subcuenta_fk CASCADE;
+ALTER TABLE public.registro ADD CONSTRAINT subcuenta_fk FOREIGN KEY (codigo_subcuenta)
+REFERENCES public.subcuenta (codigo) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
--- object: "UCA_fk" | type: CONSTRAINT --
--- ALTER TABLE public.registros DROP CONSTRAINT IF EXISTS "UCA_fk" CASCADE;
-ALTER TABLE public.registro ADD CONSTRAINT "uca_fk" FOREIGN KEY ("codigo_uca")
-REFERENCES public."uca" (codigo) MATCH FULL
+-- object: uca_fk | type: CONSTRAINT --
+-- ALTER TABLE public.registro DROP CONSTRAINT IF EXISTS uca_fk CASCADE;
+ALTER TABLE public.registro ADD CONSTRAINT uca_fk FOREIGN KEY (codigo_uca)
+REFERENCES public.uca (codigo) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
+
+-- object: uca_fk | type: CONSTRAINT --
+-- ALTER TABLE public.oferta DROP CONSTRAINT IF EXISTS uca_fk CASCADE;
+ALTER TABLE public.oferta ADD CONSTRAINT uca_fk FOREIGN KEY (codigo_uca)
+REFERENCES public.uca (codigo) MATCH FULL
+ON DELETE SET NULL ON UPDATE CASCADE;
+-- ddl-end --
+
+
