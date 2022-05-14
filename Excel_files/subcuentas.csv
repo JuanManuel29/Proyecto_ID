@@ -1,0 +1,67 @@
+﻿Codigo;DESCRIPCION
+5;Numero total de tarjetas de credito vigentes  a la fecha de corte
+10;Numero total de tarjetas de credito vigentes durante el mes
+15;Numero total de tarjetas de credito canceladas
+20;Numero total de tarjetas de creditos bloqueadas  temporalmente
+25;Numero de transacciones por compras a nivel nacional con tarjeta de credito
+30;Numero de  transacciones por avances a nivel nacional con tarjeta de credito
+35;Numero de transacciones por compras en el exterior con tarjeta de credito
+40;Numero de  transacciones por avances en el exterior con tarjeta de credito
+45;Monto de las transacciones por compras con tarjeta de credito a nivel nacional
+50;Monto de las transacciones por avances con tarjeta de credito a nivel nacional
+55;Monto de las transacciones por compras en el exterior con tarjeta de credito
+60;Monto de las transacciones por avances en el exterior con tarjeta de credito
+65;Monto de los intereses corrientes por compras y avances con tarjeta de credito
+70;Monto de los intereses de mora por compras y avances  con tarjeta de credito
+75;Monto de los castigos de cartera por tarjeta de credito, unicamente capital.
+80;Monto de los castigos de cartera por tarjeta de credito, conceptos diferentes a capital
+85;Saldo de la cartera por tarjeta de credito
+90;Total cupo de credito no utilizado por todos los tarjetahabientes
+95;INGRESOS POR TARIFA INTERBANCARIA DE INT
+100;Gastos por Tarifa Interbancaria de Intercambio - TII por Tarjeta de Credito
+105;Ingresos Comision de Adquirencia por Tarjeta de Credito
+110;Numero total de tarjetas de credito que no tienen chip de seguridad vigentes  a la fecha de corte
+115;Numero total de tarjetas debito  vigentes  a la fecha de corte
+120;Numero total de tarjetas debito vigentes durante el mes
+125;Numero total de tarjetas debito canceladas
+130;Numero total de tarjetas debito bloqueadas temporalmente
+135;Numero de transacciones por compras con tarjetas debito
+140;Numero de transacciones por retiros con tarjetas debito
+145;Monto de transacciones por compras con tarjetas debito
+150;Monto de transacciones por retiros con tarjetas debito
+155;Ingresos por Tarifa Interbancaria de Intercambio - TII por Tarjeta Debito Visa
+160;Ingresos por Tarifa Interbancaria de Intercambio - TII por Tarjeta Debito Electron
+165;Gastos por Tarifa Interbancaria de Intercambio - TII por Tarjeta Debito Visa
+170;Gastos por Tarifa Interbancaria de Intercambio - TII por Tarjeta Debito Electron
+175;Gastos por Tarifa Interbancaria de Intercambio - TII por Tarjeta Debito Maestro
+180;Ingresos Comision de Adquirencia por Tarjeta Debito
+185;Numero total de tarjetas debito que no tienen chip de seguridad vigentes  a la fecha de corte
+190;"Numero total de tarjetas debito que cuentan con la tecnologia ""contactless"" vigentes  a la fecha de corte"
+195;"Numero total de tarjetas de credito que cuentan con la tecnologia ""contactless"" vigentes  a la fecha de corte"
+200;Gastos por Tarifa Interbancaria de Intercambio - TII por Tarjeta Master Debito
+205;Ingresos por Tarifa Interbancaria de Intercambio - TII por Tarjeta Debito Maestro
+210;Ingresos por Tarifa Interbancaria de Intercambio - TII por Tarjeta Master Debito
+215;Numero de transacciones por compras a nivel nacional con tarjeta de credito de entidades nacionales
+220;Numero de transacciones por compras en el exterior con tarjeta de credito de entidades nacionales
+225;Numero de  transacciones por avances en el exterior con tarjeta de credito de entidades nacionales
+230;Numero de transacciones por compras a nivel nacional con tarjeta de credito de entidades extranjeras
+235;Numero de transacciones por avances a nivel nacional con tarjeta de credito de entidades extranjeras
+240;Monto de transacciones por compras a nivel nacional con tarjeta de credito
+245;Monto de transacciones por avances a nivel nacional con tarjeta de credito
+250;Monto de transacciones por compras en el exterior con tarjeta de credito
+255;Monto de  transacciones por avances en el exterior con tarjeta de credito
+260;Monto de transacciones por compras a nivel nacional con tarjeta de credito de entidades extranjeras
+265;Monto de transacciones por avances a nivel nacional con tarjeta de credito de entidades extranjeras
+270;Numero de transacciones por compras con tarjetas debito de entidades extranjeras
+275;Numero de transacciones por retiros con tarjetas debito  de entidades extranjeras
+280;Monto de transacciones por compras con tarjetas debito de entidades extranjeras
+285;Monto de transacciones por retiros con tarjetas debito de entidades extranjeras
+290;Numero de participantes
+295;Tarifa Interbancaria de Intercambio - TII por Tarjeta de Credito
+300;Tarifa Interbancaria de Intercambio - TII por Tarjeta Debito Visa
+305;Tarifa Interbancaria de Intercambio - TII por Tarjeta Debito Electron
+310;Tarifa Interbancaria de Intercambio - TII por Tarjeta Debito Maestro
+315;Tarifa Interbancaria de Intercambio - TII por Tarjeta Master Debito
+320;GASTOS POR TARIFA INTER.
+325;NUMERO TOTAL T. CON CHIP
+330;NUME TOTAL TA. TECNOLOGIA
