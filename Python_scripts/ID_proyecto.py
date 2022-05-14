@@ -15,7 +15,7 @@ connection = psycopg2.connect(user=cd.user,
 
 
 #LISTA QUE CONTIENE LOS NOMBRES DE LAS TABLAS DE LA BASE DE DATOS
-table_names = ['clase', 'entidad', 'subcuenta', 'uca', 'registro']
+table_names = ['clase', 'entidad', 'subcuenta', 'uca', 'registro', 'oferta']
 
 
 #FUNCION QUE PERMITE VISUALIZAR TODAS LAS TUPLAS DE LA TABLA QUE SE DESEE
