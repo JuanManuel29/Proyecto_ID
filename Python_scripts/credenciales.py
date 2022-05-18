@@ -1,5 +1,5 @@
-user = 'nombre del usuario'
-password = 'password del usuario'
-dbname = 'nombre de la base de datos'
+user = 'postgres'
+password = 'jmuribeq'
+dbname = 'proyecto_tarjetas_id'
 host = 'localhost'
 port = '5432'
