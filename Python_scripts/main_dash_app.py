@@ -6,7 +6,6 @@ import plotly.graph_objects as go
 from connection_to_database import Connection
 import querys as sql
 
-
 #-------------------------------------------------APLICACIÓN--------------------------------------------------------------------
 #CREACIÓN DE LA APLICACIÓN Y SUS COMPONENTES
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -129,12 +128,13 @@ figBarSubcuentas.update_traces( marker_color='rgb(158,202,225)',
 
 
 #LAYOUT DE LA APLICACIÓN----------------------------------------------------------------------------
-app.layout = html.Div([
-    html.H1("Proyecto ID", 
-            className='text-center fw-bold'),
+app.layout = html.Div([html.Br(),
+            html.H1("Proyecto Tarjetas", 
+                    className='text-center fw-bold p-7 m-5 rounded',
+                    style={'background-color':'#BFD6EF'}),
 
     html.H2("Primer caso de análisis: ",
-            className='text-center opacity-100, p-2 m-5 bg-secondary text-light fw-bold rounded'),
+            className='text-center opacity-100, p-0 m-5 bg-secondary text-light fw-bold rounded'),
     dbc.Row(children=[dbc.Col(width=1),
                     dbc.Col(dcc.Graph(
                             id='caso1_1',
