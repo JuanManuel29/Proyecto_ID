@@ -83,8 +83,8 @@ figOferta_tarjetas = px.bar(dfOferta_tarjetas.head(),
                                 "cantidad_empresas": "Cantidad de empresas"
                                 })
 
-figOferta_tarjetas.update_traces(marker_color=px.colors.sequential.dense, 
-                                 marker_line_color=px.colors.sequential.dense,
+figOferta_tarjetas.update_traces(marker_color=px.colors.sequential.Teal, 
+                                 marker_line_color=px.colors.sequential.Teal,
                                  marker_line_width=1.5,
                                  opacity=0.6)
 
